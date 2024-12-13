@@ -1,5 +1,7 @@
 import './ExpenseItem.css'
 import ExpenseDate from './ExpenseDate'
+
+
 const ExpenseItem = (props) => {
 
     console.log(props)
