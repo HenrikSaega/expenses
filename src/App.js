@@ -20,7 +20,7 @@ const App = () =>{
       console.log('In App.js')
       console.log(expense)
     }
-  
+
   return(
       <div className="App">
       <NewExpense onAddExpense={addExpenseHandler}/>
