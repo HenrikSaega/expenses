@@ -8,10 +8,6 @@ const ExpenseForm = (props) => {
         enteredDate:''
     })
     
-    const [enteredTitle, setEnteredTitle] = useState('')
-    const [enteredPrice, setEnteredPrice] = useState('')
-    const [enteredDate, setEnteredDate] = useState('')
-
     const titleChangeHandler = (event) => {
         setuserInput({
             ...userInput,
@@ -36,15 +32,17 @@ const ExpenseForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault()
         const expenseData = {
-            title: enteredTitle,
-            price: enteredPrice,
-            date: new Date(enteredDate)
+            title: userInput.enteredTitle,
+            price: userInput.enteredPrice,
+            date: new Date(userInput.enteredDate)
         }
+        console.log(expenseData)
         props.onSaveExpenseData(expenseData)
-
-        setEnteredTitle('')
-        setEnteredPrice('')
-        setEnteredDate('')
+        setuserInput({
+            setenteredTitle: '',
+            setenteredPrice: '',
+            setenteredDate: ''
+        })
         
     }
 
@@ -56,7 +54,7 @@ const ExpenseForm = (props) => {
                     <input 
                     type='text'
                     onChange={titleChangeHandler}
-                    //value={enteredTitle}
+                    value={userInput.enteredTitle}
                     ></input>
                     
                 </div>
@@ -64,14 +62,14 @@ const ExpenseForm = (props) => {
                     <label>Price</label>
                     <input type='number' min='0.01' step='0.01'
                     onChange={priceChangeHandler}
-                    //value={enteredPrice}
+                    value={userInput.enteredPrice}
                     ></input>
                 </div>
                 <div className='new-expense__control'>
                     <label>Date</label>
                     <input type='date' min='2024-11-12' max='2026-01-31'
                     onChange={dateChangeHandler}
-                    //value={enteredDate}
+                    value={userInput.enteredDate}
                     ></input>
                 </div>
             </div>
