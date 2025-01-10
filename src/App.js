@@ -5,13 +5,13 @@ import {useState} from 'react'
 
 const DYMYMY_EXPENSES = [
   {
-    id: "id1",
+    id: "1",
     date: new Date(2025, 11, 22),
     title: "New book",
     price: 19.99
   },
   {
-    id: "id2",
+    id: "2",
     date: new Date(2024, 11, 22),
     title: "New Jeans",
     price: 49.99
@@ -22,8 +22,6 @@ const App = () =>{
   const[expenses, setExpenses] = useState(DYMYMY_EXPENSES)
 
     const addExpenseHandler = (expense) => {
-      console.log('In App.js')
-      console.log(expense)
       setExpenses(expenses => {
         return [expense, ...expenses]
       })

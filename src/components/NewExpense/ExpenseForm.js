@@ -8,6 +8,7 @@ const ExpenseForm = (props) => {
         enteredDate:''
     })
     
+    
     const titleChangeHandler = (event) => {
         setuserInput({
             ...userInput,
@@ -39,9 +40,9 @@ const ExpenseForm = (props) => {
         console.log(expenseData)
         props.onSaveExpenseData(expenseData)
         setuserInput({
-            setenteredTitle: '',
-            setenteredPrice: '',
-            setenteredDate: ''
+            enteredTitle: '',
+            enteredPrice: '',
+            enteredDate: ''
         })
         
     }
