@@ -1,7 +1,11 @@
 import "./ExpenseForm.css"
-import { useState ,useRef } from "react"
+import { useState ,useRef, Fragment } from "react"
+import Error from "../UI/Error"
 
 const ExpenseForm = (props) => {
+    const [error, setError] = useState(null)
+console.log(error)
+
     const [userInput, setuserInput] = useState({
         enteredTitle:'',
         enteredPrice:'',
@@ -48,6 +52,13 @@ const ExpenseForm = (props) => {
         titleInputRef.current.value = ''
         priceInputRef.current.value = ''
         dateInputRef.current.value = ''
+
+        if(userInput.enteredTitle.trim().length === 0 || userInput.enteredPrice.trim().length === 0 || userInput.enteredDate.trim().length === 0){
+            setError({
+                title: 'Invalid input',
+                message: 'Please enter a valid title or amount or date (non-empty values)'
+            })
+        }
     }
 
     const onCancel = (event) => {

@@ -2,6 +2,7 @@ import './App.css';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense'
 import {useState} from 'react'
+import Button from './components/UI/Button';
 
 const DYMYMY_EXPENSES = [
   {
@@ -31,6 +32,7 @@ const App = () =>{
       <div className="App">
       <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses expenses={expenses}/>
+      <Button/>
       </div>
   )   
 }
